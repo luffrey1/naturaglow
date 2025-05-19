@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog · NaturaGlow</title>
+  <meta name="description" content="Consejos, rutinas y novedades sobre cosmética natural. Descubre el blog de NaturaGlow.">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dark-mode.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/img/logo.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog NaturaGlow",
+      "description": "Consejos, rutinas y novedades sobre cosmética natural.",
+      "url": "https://tusitio.github.io/blog/index.html"
+    }
+  </script>
+</head>
+<body>
+  <header class="header-sticky">
+    <nav class="container nav-flex">
+      <a href="/index.html" class="logo-link"><img src="/assets/img/logo.svg" alt="NaturaGlow logo" class="logo-img"></a>
+      <ul class="nav-list">
+        <li><a href="/tienda/index.html">Tienda</a></li>
+        <li><a href="/blog/index.html">Blog</a></li>
+        <li><a href="/index.html#beneficios">Beneficios</a></li>
+        <li><a href="/index.html#testimonios">Testimonios</a></li>
+        <li><button class="btn btn-cart" onclick="abrirCarrito()"><span class="icon-cart"></span> Carrito</button></li>
+        <li><button id="dark-toggle" title="Modo oscuro" class="btn-icon">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="section container">
+      <h1>Blog NaturaGlow</h1>
+      <div class="blog-grid">
+        <article class="card blog-card">
+          <a href="/blog/como-usar-aceite-jojoba.html"><img src="/assets/img/aceite-jojoba.jpg" alt="Aceite de jojoba NaturaGlow" title="Foto: Unsplash - Chelsea shapouri"></a>
+          <h2>Cómo usar el aceite de jojoba</h2>
+          <p>Descubre los beneficios y usos del aceite de jojoba en tu rutina de cuidado natural.</p>
+          <span class="blog-meta">Publicado el 1/6/2024</span>
+        </article>
+        <article class="card blog-card">
+          <a href="#"><img src="/assets/img/rutina-piel.jpg" alt="Rutina de cuidado facial" title="Foto: Pexels - Polina Kovaleva"></a>
+          <h2>Rutina facial natural en 5 pasos</h2>
+          <p>Guía rápida para una piel radiante usando solo productos naturales.</p>
+          <span class="blog-meta">Publicado el 15/5/2024</span>
+        </article>
+        <article class="card blog-card">
+          <a href="#"><img src="/assets/img/ingredientes-naturales.jpg" alt="Ingredientes naturales" title="Foto: Pixabay"></a>
+          <h2>Top 5 ingredientes naturales para tu piel</h2>
+          <p>Conoce los activos más potentes y seguros para tu rutina diaria.</p>
+          <span class="blog-meta">Publicado el 2/5/2024</span>
+        </article>
+      </div>
+      <div class="creditos-img" style="font-size:0.85em;color:#888;margin-top:1em;">
+        Fotos: Unsplash (Chelsea shapouri), Pexels (Polina Kovaleva), Pixabay.
+      </div>
+    </section>
+  </main>
+  <div id="carrito-modal" style="position:fixed;top:0;right:0;width:350px;max-width:100vw;height:100vh;background:var(--color-light);box-shadow:-4px 0 24px rgba(0,0,0,0.12);z-index:1000;transform:translateX(100%);transition:transform 0.3s;display:flex;flex-direction:column;" tabindex="-1">
+    <div style="padding:1em;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;">
+      <strong>Tu carrito</strong>
+      <button onclick="cerrarCarrito()" style="background:none;border:none;font-size:1.5em;cursor:pointer;">&times;</button>
+    </div>
+    <div id="carrito-lista" style="flex:1;overflow-y:auto;padding:1em;"></div>
+    <div style="padding:1em;border-top:1px solid #eee;">
+      <span>Total: <strong id="carrito-total">€0.00</strong></span>
+      <button class="btn" style="width:100%;margin-top:1em;" disabled>Finalizar compra</button>
+      <p style="font-size:0.9em;color:var(--color-gray);margin-top:0.5em;">* Simulación visual, no funcional.</p>
+    </div>
+  </div>
+  <footer class="footer-moderno">
+    <div class="container footer-flex">
+      <div class="footer-col">
+        <img src="/assets/img/logo.svg" alt="NaturaGlow logo" class="logo-footer">
+        <p>© 2024 NaturaGlow. Cosmética natural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="/legal/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/legal/politica-privacidad.html">Privacidad</a></li>
+          <li><a href="/legal/cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:info@natura-glow.com">info@natura-glow.com</a></li>
+          <li class="rrss">
+            <a href="https://instagram.com/" target="_blank" title="Instagram"><img src="/assets/svg/instagram.svg" alt="Instagram" class="icon-rrss"></a>
+            <a href="https://facebook.com/" target="_blank" title="Facebook"><img src="/assets/svg/facebook.svg" alt="Facebook" class="icon-rrss"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Tu email" required>
+          <button class="btn" type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html> 

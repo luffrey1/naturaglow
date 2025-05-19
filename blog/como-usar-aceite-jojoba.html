@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo usar el aceite de jojoba · Blog NaturaGlow</title>
+  <meta name="description" content="Descubre los beneficios y usos del aceite de jojoba en tu rutina de cuidado natural. Blog NaturaGlow.">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dark-mode.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/img/logo.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Cómo usar el aceite de jojoba",
+      "image": "/assets/img/aceite-jojoba.jpg",
+      "author": { "@type": "Person", "name": "Equipo NaturaGlow" },
+      "publisher": { "@type": "Organization", "name": "NaturaGlow", "logo": {"@type": "ImageObject", "url": "/assets/img/logo.svg"} },
+      "datePublished": "2024-06-01",
+      "dateModified": "2024-06-01",
+      "description": "Descubre los beneficios y usos del aceite de jojoba en tu rutina de cuidado natural."
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="container" style="display:flex;align-items:center;justify-content:space-between;padding:1.2em 0;">
+      <a href="/index.html"><img src="/assets/img/logo.svg" alt="NaturaGlow logo" style="height:48px;"></a>
+      <ul style="display:flex;gap:2em;list-style:none;margin:0;">
+        <li><a href="/categorias/faciales.html">Tienda</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/index.html#beneficios">Beneficios</a></li>
+        <li><a href="/index.html#testimonios">Testimonios</a></li>
+        <li><button class="btn" onclick="abrirCarrito()">Carrito</button></li>
+        <li><button id="dark-toggle" title="Modo oscuro" style="background:none;border:none;cursor:pointer;font-size:1.3em;">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article class="section container" style="max-width:700px;">
+      <h1>Cómo usar el aceite de jojoba</h1>
+      <img src="/assets/img/aceite-jojoba.jpg" alt="Aceite de jojoba NaturaGlow" style="margin-bottom:1.5em;">
+      <p><strong>El aceite de jojoba</strong> es uno de los ingredientes más versátiles y beneficiosos en la cosmética natural. Su composición es muy similar al sebo natural de la piel, lo que lo hace ideal para todo tipo de pieles, incluso las grasas o sensibles.</p>
+      <h2>Beneficios principales</h2>
+      <ul>
+        <li>Hidrata sin engrasar</li>
+        <li>Regula la producción de sebo</li>
+        <li>Calma irritaciones y rojeces</li>
+        <li>Fortalece el cabello y las uñas</li>
+      </ul>
+      <h2>¿Cómo usarlo?</h2>
+      <ol>
+        <li>Como hidratante facial: aplica unas gotas sobre la piel limpia.</li>
+        <li>Como desmaquillante natural.</li>
+        <li>En el cabello: para puntas abiertas o como sérum capilar.</li>
+        <li>En las uñas: masajea para fortalecerlas.</li>
+      </ol>
+      <blockquote style="background:var(--color-secondary);padding:1em;border-radius:var(--radius);margin:2em 0;">Tip NaturaGlow: mezcla unas gotas de aceite de jojoba con tu crema facial para potenciar su efecto hidratante.</blockquote>
+      <p>¿Quieres más consejos? <a href="/blog/">Visita nuestro blog</a> para descubrir rutinas y productos naturales.</p>
+    </article>
+  </main>
+  <div id="carrito-modal" style="position:fixed;top:0;right:0;width:350px;max-width:100vw;height:100vh;background:var(--color-light);box-shadow:-4px 0 24px rgba(0,0,0,0.12);z-index:1000;transform:translateX(100%);transition:transform 0.3s;display:flex;flex-direction:column;" tabindex="-1">
+    <div style="padding:1em;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;">
+      <strong>Tu carrito</strong>
+      <button onclick="cerrarCarrito()" style="background:none;border:none;font-size:1.5em;cursor:pointer;">&times;</button>
+    </div>
+    <div id="carrito-lista" style="flex:1;overflow-y:auto;padding:1em;"></div>
+    <div style="padding:1em;border-top:1px solid #eee;">
+      <span>Total: <strong id="carrito-total">€0.00</strong></span>
+      <button class="btn" style="width:100%;margin-top:1em;" disabled>Finalizar compra</button>
+      <p style="font-size:0.9em;color:var(--color-gray);margin-top:0.5em;">* Simulación visual, no funcional.</p>
+    </div>
+  </div>
+  <script>
+    function abrirCarrito() { document.getElementById('carrito-modal').style.transform = 'translateX(0)'; }
+    function cerrarCarrito() { document.getElementById('carrito-modal').style.transform = 'translateX(100%)'; }
+    let carrito = [];
+    function agregarAlCarrito(producto) { carrito.push(producto); renderizarCarrito(); abrirCarrito(); }
+    function renderizarCarrito() {
+      const cont = document.getElementById('carrito-lista');
+      cont.innerHTML = '';
+      let total = 0;
+      carrito.forEach((prod, i) => {
+        total += prod.precio;
+        cont.innerHTML += `<div class='carrito-item' style='display:flex;align-items:center;gap:1em;margin-bottom:1em;'><img src='${prod.img}' alt='${prod.nombre}' style='width:48px;height:48px;border-radius:8px;object-fit:cover;'><span style='flex:1;'>${prod.nombre}</span><span>€${prod.precio.toFixed(2)}</span></div>`;
+      });
+      document.getElementById('carrito-total').textContent = '€' + total.toFixed(2);
+    }
+  </script>
+  <footer class="section" style="background:var(--color-secondary);margin-top:2em;">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:2em;justify-content:space-between;align-items:center;">
+      <div>
+        <img src="/assets/img/logo.svg" alt="NaturaGlow logo" style="height:40px;">
+        <p style="font-size:0.95em;color:var(--color-gray);">© 2024 NaturaGlow. Cosmética natural.</p>
+      </div>
+      <div>
+        <a href="/legal/aviso-legal.html">Aviso legal</a> ·
+        <a href="/legal/politica-privacidad.html">Privacidad</a> ·
+        <a href="/legal/cookies.html">Cookies</a>
+      </div>
+      <div>
+        <a href="mailto:info@natura-glow.com">Contacto</a> ·
+        <a href="https://instagram.com/" target="_blank">Instagram</a> ·
+        <a href="https://facebook.com/" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html> 
