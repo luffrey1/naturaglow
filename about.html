@@ -1,0 +1,74 @@
+  <header class="header-minimal premium-header">
+    <nav class="container nav-flex new-header-flex">
+      <div class="header-left">
+        <button class="hamburger" aria-label="Abrir menú" onclick="document.querySelector('.nav-list.minimal').classList.toggle('open')">☰</button>
+        <ul class="nav-list minimal" style="display:flex;flex-direction:row;gap:2.5em;align-items:center;list-style:none;margin:0;padding:0;">
+          <li><a href="about.html" class="active">About</a></li>
+          <li class="dropdown" ontouchstart="this.classList.toggle('open')">
+            <span class="dropdown-toggle" tabindex="0">Tienda <span class="arrow">▼</span></span>
+            <div class="dropdown-menu mega-menu">
+              <div class="dropdown-col">
+                <h4>Por edición</h4>
+                <ul>
+                  <li><a href="tienda.html#mas-vendidos">Más vendidos</a></li>
+                  <li><a href="tienda.html#novedades">Novedades</a></li>
+                  <li><a href="tienda.html#packs">Packs regalo</a></li>
+                  <li><a href="tienda.html#accesorios">Accesorios</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Cuidado facial</h4>
+                <ul>
+                  <li><a href="tienda.html#serums">Sérums</a></li>
+                  <li><a href="tienda.html#hidratantes">Hidratantes</a></li>
+                  <li><a href="tienda.html#noche">Noche</a></li>
+                  <li><a href="tienda.html#limpiadores">Limpiadores</a></li>
+                  <li><a href="tienda.html#contorno-ojos">Contorno de ojos</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Por etapa</h4>
+                <ul>
+                  <li><a href="tienda.html#prevencion">Prevención</a></li>
+                  <li><a href="tienda.html#primeros-signos">Primeros signos</a></li>
+                  <li><a href="tienda.html#piel-madura">Piel madura</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Por necesidad</h4>
+                <ul>
+                  <li><a href="tienda.html#sequedad">Sequedad</a></li>
+                  <li><a href="tienda.html#sensibilidad">Sensibilidad</a></li>
+                  <li><a href="tienda.html#manchas">Manchas</a></li>
+                  <li><a href="tienda.html#arrugas">Arrugas</a></li>
+                  <li><a href="tienda.html#poros">Poros</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="header-center">
+        <a href="index.html" class="logo-link"><img src="assets/img/logo.webp" alt="NaturaGlow logo" class="logo-img"></a>
+      </div>
+      <div class="header-right" style="display:flex;align-items:center;gap:1.5em;">
+        <div class="lang-selector">
+          <select aria-label="Seleccionar idioma">
+            <option value="es" selected>ES</option>
+            <option value="en">EN</option>
+          </select>
+        </div>
+        <button class="cart-btn" onclick="document.getElementById('carrito-modal').style.transform='translateX(0)';" aria-label="Ver carrito" style="background:none;border:none;cursor:pointer;">
+          <img src="assets/svg/cart.svg" alt="Carrito" style="width:28px;height:28px;">
+        </button>
+      </div>
+    </nav>
+  </header>
+  <script>
+  // Responsive: cerrar mega menú al hacer scroll o tocar fuera
+  window.addEventListener('click', function(e) {
+    document.querySelectorAll('.dropdown').forEach(function(drop) {
+      if (!drop.contains(e.target)) drop.classList.remove('open');
+    });
+  });
+  </script> 

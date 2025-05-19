@@ -28,29 +28,122 @@
     }
   </script>
 </head>
-<body>
-  <!-- HEADER MODERNO -->
-  <header class="header-sticky glass-header">
-    <nav class="container nav-flex">
-      <a href="index.html" class="logo-link"><img src="assets/img/logo.webp" alt="NaturaGlow logo" class="logo-img"></a>
-      <ul class="nav-list">
-        <li><a href="/tienda/index.html">Tienda</a></li>
-        <li><a href="/blog/index.html">Blog</a></li>
-        <li><a href="#">Novedades</a></li>
-        <li><a href="#">Maquillaje</a></li>
-        <li><a href="#">Cuidado facial</a></li>
-      </ul>
-      <div class="nav-icons">
-        <button class="btn btn-cart btn-cart-outline" onclick="abrirCarrito()" aria-label="Abrir carrito">
-          <span class="icon-cart">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-              <circle cx="9" cy="21" r="1.5"/>
-              <circle cx="19" cy="21" r="1.5"/>
-              <path d="M2.5 3h2l2.7 13.39a2 2 0 0 0 2 1.61h7.6a2 2 0 0 0 2-1.61l1.7-8.39H6.1"/>
-            </svg>
-          </span>
+<body style="background:#fff;">
+  <!-- HEADER MINIMALISTA REFORZADO -->
+  <header class="header-minimal premium-header">
+    <nav class="container nav-flex new-header-flex">
+      <div class="header-left">
+        <button class="hamburger" aria-label="Abrir menú" onclick="document.getElementById('offcanvas-menu').classList.toggle('open')">☰</button>
+        <a href="index.html" class="logo-link"><img src="assets/img/logo.webp" alt="NaturaGlow logo" class="logo-img"></a>
+        <!-- Nav-list solo en desktop -->
+        <ul class="nav-list minimal" id="desktop-nav" style="display:none;">
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <span class="dropdown-toggle" tabindex="0">Tienda <span class="arrow">▼</span></span>
+            <div class="dropdown-menu mega-menu">
+              <div class="dropdown-col">
+                <h4>Por edición</h4>
+                <ul>
+                  <li><a href="tienda.html#mas-vendidos">Más vendidos</a></li>
+                  <li><a href="tienda.html#novedades">Novedades</a></li>
+                  <li><a href="tienda.html#packs">Packs regalo</a></li>
+                  <li><a href="tienda.html#accesorios">Accesorios</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Cuidado facial</h4>
+                <ul>
+                  <li><a href="tienda.html#serums">Sérums</a></li>
+                  <li><a href="tienda.html#hidratantes">Hidratantes</a></li>
+                  <li><a href="tienda.html#noche">Noche</a></li>
+                  <li><a href="tienda.html#limpiadores">Limpiadores</a></li>
+                  <li><a href="tienda.html#contorno-ojos">Contorno de ojos</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Por etapa</h4>
+                <ul>
+                  <li><a href="tienda.html#prevencion">Prevención</a></li>
+                  <li><a href="tienda.html#primeros-signos">Primeros signos</a></li>
+                  <li><a href="tienda.html#piel-madura">Piel madura</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Por necesidad</h4>
+                <ul>
+                  <li><a href="tienda.html#sequedad">Sequedad</a></li>
+                  <li><a href="tienda.html#sensibilidad">Sensibilidad</a></li>
+                  <li><a href="tienda.html#manchas">Manchas</a></li>
+                  <li><a href="tienda.html#arrugas">Arrugas</a></li>
+                  <li><a href="tienda.html#poros">Poros</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <button class="cart-btn" onclick="document.getElementById('carrito-modal').style.transform='translateX(0)';" aria-label="Ver carrito" style="background:none;border:none;cursor:pointer;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="8" cy="21" r="1"/>
+            <circle cx="19" cy="21" r="1"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 3H4.5L6.5 16H19.5L21.5 7H6.5"/>
+          </svg>
         </button>
+        <div class="lang-selector">
+          <select aria-label="Seleccionar idioma">
+            <option value="es" selected>ES</option>
+            <option value="en">EN</option>
+          </select>
+        </div>
       </div>
+      <!-- Offcanvas lateral menu for mobile -->
+      <aside id="offcanvas-menu" class="offcanvas-menu">
+        <button class="close-offcanvas" aria-label="Cerrar menú" onclick="document.getElementById('offcanvas-menu').classList.remove('open')">×</button>
+        <ul class="offcanvas-list">
+          <li><a href="about.html">About</a></li>
+          <li class="offcanvas-dropdown">
+            <button class="offcanvas-dropdown-toggle" onclick="this.parentNode.classList.toggle('open')">Tienda <span class="arrow">▼</span></button>
+            <div class="offcanvas-dropdown-menu">
+              <div class="dropdown-col">
+                <h4>Por edición</h4>
+                <ul>
+                  <li><a href="tienda.html#mas-vendidos">Más vendidos</a></li>
+                  <li><a href="tienda.html#novedades">Novedades</a></li>
+                  <li><a href="tienda.html#packs">Packs regalo</a></li>
+                  <li><a href="tienda.html#accesorios">Accesorios</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Cuidado facial</h4>
+                <ul>
+                  <li><a href="tienda.html#serums">Sérums</a></li>
+                  <li><a href="tienda.html#hidratantes">Hidratantes</a></li>
+                  <li><a href="tienda.html#noche">Noche</a></li>
+                  <li><a href="tienda.html#limpiadores">Limpiadores</a></li>
+                  <li><a href="tienda.html#contorno-ojos">Contorno de ojos</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Por etapa</h4>
+                <ul>
+                  <li><a href="tienda.html#prevencion">Prevención</a></li>
+                  <li><a href="tienda.html#primeros-signos">Primeros signos</a></li>
+                  <li><a href="tienda.html#piel-madura">Piel madura</a></li>
+                </ul>
+              </div>
+              <div class="dropdown-col">
+                <h4>Por necesidad</h4>
+                <ul>
+                  <li><a href="tienda.html#sequedad">Sequedad</a></li>
+                  <li><a href="tienda.html#sensibilidad">Sensibilidad</a></li>
+                  <li><a href="tienda.html#manchas">Manchas</a></li>
+                  <li><a href="tienda.html#arrugas">Arrugas</a></li>
+                  <li><a href="tienda.html#poros">Poros</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </aside>
     </nav>
   </header>
 
@@ -69,14 +162,13 @@
   </section>
 
   <!-- DESTACADOS PREMIUM VISUAL (Typology style) -->
-  <section class="destacados-premium">
+  <section class="destacados-premium minimal-bg">
     <div class="container">
       <h2 class="title-xxl" style="text-align:center;">DESTACADOS</h2>
-      <div class="destacados-premium-grid">
-        <div class="destacado-premium-card">
+      <div class="destacados-premium-grid minimal-cards">
+        <div class="destacado-premium-card sin-linea hazal-blanca">
           <div class="destacado-premium-img-wrap">
             <img src="assets/img/serum.jpeg" alt="Sérum Vitamina C">
-            <span class="etiqueta-premium grande">BEST SELLER</span>
           </div>
           <div class="destacado-premium-info">
             <h3>Sérum Vitamina C</h3>
@@ -84,10 +176,9 @@
             <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
           </div>
         </div>
-        <div class="destacado-premium-card">
+        <div class="destacado-premium-card sin-linea hazal-blanca">
           <div class="destacado-premium-img-wrap">
             <img src="assets/img/argan.webp" alt="Crema de Argán">
-            <span class="etiqueta-premium grande">NOVEDAD</span>
           </div>
           <div class="destacado-premium-info">
             <h3>Crema de Argán</h3>
@@ -95,10 +186,9 @@
             <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
           </div>
         </div>
-        <div class="destacado-premium-card">
+        <div class="destacado-premium-card sin-linea hazal-blanca">
           <div class="destacado-premium-img-wrap">
             <img src="assets/img/jabonrosas.jpg" alt="Jabón de Rosas">
-            <span class="etiqueta-premium grande">FAVORITO</span>
           </div>
           <div class="destacado-premium-info">
             <h3>Jabón de Rosas</h3>
@@ -111,29 +201,32 @@
   </section>
 
   <!-- SECCIÓN: MAQUILLAJE EN ACCIÓN REDISEÑADA (imagen izquierda, texto y productos derecha) -->
-  <section class="maquillaje-accion-premium">
-    <div class="container maquillaje-accion-2col">
-      <div class="maquillaje-accion-img-prota">
+  <section class="maquillaje-accion-premium minimal-bg">
+    <div class="container maquillaje-accion-2col align-center">
+      <div class="maquillaje-accion-img-prota align-center">
         <img src="assets/img/maquillandola.avif" alt="Maquillaje en acción NaturaGlow">
       </div>
-      <div class="maquillaje-accion-txt-productos">
+      <div class="maquillaje-accion-txt-productos align-center">
         <h2 class="title-xxl" style="color:#222;">MAQUILLAJE EN ACCIÓN</h2>
         <p class="desc-xxl">Descubre la experiencia premium de NaturaGlow: aplicación profesional, resultados naturales y luminosos. Cada gesto realza tu belleza auténtica.</p>
-        <div class="maquillaje-accion-cards-vertical">
-          <div class="maquillaje-card-producto">
+        <div class="maquillaje-accion-cards-horizontal">
+          <div class="maquillaje-card-producto mini-blanca sin-linea">
             <img src="assets/img/base-maquillaje.avif" alt="Base de Maquillaje">
             <h3>Base de Maquillaje</h3>
             <p>Cobertura ligera, acabado luminoso.</p>
+            <a href="/tienda/index.html" class="btn-premium ultra-mini">Ver producto</a>
           </div>
-          <div class="maquillaje-card-producto">
+          <div class="maquillaje-card-producto mini-blanca sin-linea">
             <img src="assets/img/paletaColores1.avif" alt="Colorete Baked Pink">
             <h3>Colorete</h3>
             <p>Color saludable y textura sedosa.</p>
+            <a href="/tienda/index.html" class="btn-premium ultra-mini">Ver producto</a>
           </div>
-          <div class="maquillaje-card-producto">
+          <div class="maquillaje-card-producto mini-blanca sin-linea">
             <img src="assets/img/rimmel.jpeg" alt="Rímel Volumen">
             <h3>Rímel Volumen</h3>
             <p>Pestañas definidas y naturales.</p>
+            <a href="/tienda/index.html" class="btn-premium ultra-mini">Ver producto</a>
           </div>
         </div>
       </div>
@@ -141,7 +234,7 @@
   </section>
 
   <!-- SECCIÓN: DESCUBRE TU COLOR + PRODUCTOS + INTERACTIVO -->
-  <section class="seccion-2col premium-block" id="colorete-section">
+  <section class="seccion-2col premium-block minimal-bg" id="colorete-section">
     <div class="container seccion-2col-flex reverse">
       <div class="seccion-2col-img" id="colorete-img-wrap">
         <img id="colorete-img" src="assets/img/blush_baked.jpg" alt="Colorete NaturaGlow">
@@ -158,16 +251,16 @@
           <div class="color-item" data-nombre="Sunset" data-img="assets/img/blush_sunset.jpg" style="background:#f7b88a;"></div>
         </div>
         <div class="color-nombre" id="color-nombre">Baked Pink</div>
-        <div id="colorete-producto" class="colorete-producto-card"></div>
+        <div id="colorete-producto" class="colorete-producto-card mini-blanca centrada sin-linea"></div>
       </div>
     </div>
   </section>
 
   <!-- SECCIÓN: PINTALABIOS PREMIUM CON SELECCIÓN DE COLORES REALES Y ANIMACIÓN -->
-  <section class="seccion-2col premium-block">
+  <section class="seccion-2col premium-block minimal-bg" id="labios">
     <div class="container seccion-2col-flex">
       <div class="seccion-2col-img cuadrada">
-        <img id="labial-img" src="assets/img/beigeclaro.avif" alt="Labial NaturaGlow" class="fade-img">
+        <img id="labial-img" src="assets/img/beigeclaro.avif" alt="Labial NaturaGlow" class="fade-img" style="background:#fff;">
       </div>
       <div class="seccion-2col-txt">
         <h2 class="title-xxl">PINTALABIOS PREMIUM</h2>
@@ -181,13 +274,13 @@
           <div class="color-item" data-nombre="Ruby Woo" data-img="assets/img/rubywoo.avif" style="background:#c12a3a;"></div>
         </div>
         <div class="color-nombre" id="labial-nombre">Beige Claro</div>
-        <div class="productos-premium-grid productos-labios" id="labial-producto"></div>
+        <div class="productos-premium-grid productos-labios mini-blanca centrada sin-linea" id="labial-producto"></div>
       </div>
     </div>
   </section>
 
   <!-- SECCIÓN: PALETA DE COLORES WOW (texto fuera, grid 2xN, animación) -->
-  <section class="paleta-wow-section">
+  <section class="paleta-wow-section" style="background:#fff;">
     <div class="container paleta-wow-flex">
       <div class="paleta-wow-img">
         <img src="assets/img/coloretes.avif" alt="Paleta de colores NaturaGlow">
@@ -195,31 +288,36 @@
       <div class="paleta-wow-productos">
         <h2 class="title-xxl">PALETA DE COLORES</h2>
         <p class="desc-xxl">Explora nuestra gama de coloretes: tonos naturales, textura sedosa y acabado radiante. Baja para ver los productos y sigue explorando.</p>
-        <div class="paleta-wow-scroll productos-grid-2xN fadein-grid">
+        <div class="paleta-wow-scroll productos-grid-2xN fadein-grid sin-linea">
           <div class="producto-premium mini wow-card">
             <img src="assets/img/paletaColores1.avif" alt="Baked Pink">
             <h3>Baked Pink</h3>
             <p class="desc-premium">Rosa empolvado luminoso. Acabado natural y radiante para todo tipo de piel.</p>
+            <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
           </div>
           <div class="producto-premium mini wow-card">
             <img src="assets/img/paletaColores2.avif" alt="Coralina">
             <h3>Coralina</h3>
             <p class="desc-premium">Colorete coral intenso. Aporta frescura y vitalidad instantánea.</p>
+            <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
           </div>
           <div class="producto-premium mini wow-card">
             <img src="assets/img/paletaColores3.avif" alt="Pink">
             <h3>Pink</h3>
             <p class="desc-premium">Rosa vibrante. Mejillas jugosas y efecto buena cara al instante.</p>
+            <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
           </div>
           <div class="producto-premium mini wow-card">
             <img src="assets/img/paletaColores4.avif" alt="Primavera">
             <h3>Primavera</h3>
             <p class="desc-premium">Tono melocotón suave. Perfecto para un look natural y saludable.</p>
+            <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
           </div>
           <div class="producto-premium mini wow-card">
             <img src="assets/img/paletaColores5.avif" alt="Rose D'Oro">
             <h3>Rose D'Oro</h3>
             <p class="desc-premium">Rosa dorado con destellos. Luminosidad sofisticada y elegante.</p>
+            <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
           </div>
         </div>
       </div>
@@ -236,25 +334,27 @@
           <img src="assets/img/serumantioxidante.jpg" alt="Sérum Antioxidante">
           <h3>Sérum Antioxidante</h3>
           <p class="desc-premium">Protección avanzada y luminosidad inmediata.</p>
+          <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
         </div>
         <div class="producto-premium">
           <span class="etiqueta-premium">NUEVO</span>
           <img src="assets/img/labial.jpg" alt="Labial Nude Natural">
           <h3>Labial Nude Natural</h3>
           <p class="desc-premium">Color sutil, hidratación y acabado natural.</p>
+          <a href="/tienda/index.html" class="btn-premium mini">Ver producto</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- NEWSLETTER FINAL -->
-  <section class="section-xxl" style="background:#faf9f6;">
+  <section class="section-xxl" style="background:#fff;">
     <div class="container" style="text-align:center;">
       <h2 class="title-xxl">ÚNETE A NATURAGLOW</h2>
       <p class="desc-xxl">Recibe un 10% de descuento y novedades exclusivas.</p>
       <form class="newsletter-form-premium">
         <input type="email" placeholder="Tu email" required>
-        <button class="btn-premium" type="submit">Suscribirme</button>
+        <button class="btn" type="submit">Suscribirme</button>
       </form>
       <div class="claims-premium" style="margin-top:2em;">
         <h2 class="claim-premium">BELLEZA CONSCIENTE</h2>
@@ -263,49 +363,8 @@
     </div>
   </section>
 
-  <!-- CARRITO MODAL (sidebar moderno) -->
-  <div id="carrito-overlay" class="carrito-overlay" onclick="cerrarCarrito()"></div>
-  <aside id="carrito-modal" class="carrito-sidebar">
-    <div class="carrito-header">
-      <strong>Tu carrito</strong>
-      <button onclick="cerrarCarrito()" class="carrito-cerrar">&times;</button>
-    </div>
-    <div id="carrito-lista" class="carrito-lista"></div>
-    <div class="carrito-footer">
-      <span>Total: <strong id="carrito-total">€0.00</strong></span>
-      <button class="btn" style="width:100%;margin-top:1em;" disabled>Finalizar compra</button>
-      <p style="font-size:0.9em;color:var(--color-gray);margin-top:0.5em;">* Simulación visual, no funcional.</p>
-    </div>
-  </aside>
-  <script>
-    // Sidebar carrito moderno
-    function abrirCarrito() {
-      document.getElementById('carrito-modal').classList.add('open');
-      document.getElementById('carrito-overlay').classList.add('open');
-    }
-    function cerrarCarrito() {
-      document.getElementById('carrito-modal').classList.remove('open');
-      document.getElementById('carrito-overlay').classList.remove('open');
-    }
-    let carrito = [];
-    function agregarAlCarrito(producto) {
-      carrito.push(producto);
-      renderizarCarrito();
-      abrirCarrito();
-    }
-    function renderizarCarrito() {
-      const cont = document.getElementById('carrito-lista');
-      cont.innerHTML = '';
-      let total = 0;
-      if(carrito.length === 0) {
-        cont.innerHTML = '<div class="carrito-vacio">Tu carrito está vacío.</div>';
-      }
-      carrito.forEach((prod, i) => {
-        total += prod.precio;
-        cont.innerHTML += `<div class='carrito-item'><img src='${prod.img}' alt='${prod.nombre}'><span>${prod.nombre}</span><span>€${prod.precio.toFixed(2)}</span></div>`;
-      });
-      document.getElementById('carrito-total').textContent = '€' + total.toFixed(2);
-    }
+    <script>
+  
 
     // Interactividad para marcar el color seleccionado en colorete y cambiar la imagen
     document.addEventListener('DOMContentLoaded', function() {
@@ -430,6 +489,24 @@
       });
       renderLabial(0);
     });
+
+    // Responsive: cerrar mega menú al hacer scroll o tocar fuera
+    window.addEventListener('click', function(e) {
+      document.querySelectorAll('.dropdown').forEach(function(drop) {
+        if (!drop.contains(e.target)) drop.classList.remove('open');
+      });
+    });
+
+    function handleNavDisplay() {
+      const nav = document.getElementById('desktop-nav');
+      if(window.innerWidth > 700) {
+        nav.style.display = 'flex';
+      } else {
+        nav.style.display = 'none';
+      }
+    }
+    window.addEventListener('resize', handleNavDisplay);
+    window.addEventListener('DOMContentLoaded', handleNavDisplay);
   </script>
 
   <!-- FOOTER MODERNO -->
@@ -461,7 +538,7 @@
         <h4>Newsletter</h4>
         <form class="newsletter-form-premium">
           <input type="email" placeholder="Tu email" required>
-          <button class="btn-premium" type="submit">Suscribirme</button>
+          <button class="btn" type="submit">Suscribirme</button>
         </form>
       </div>
     </div>
